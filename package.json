@@ -1,0 +1,49 @@
+{
+    "name": "rdulog",
+    "version": "0.0.1",
+    "private": true,
+    "description": "rdulog gui",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "rundev": "webpack --devtool source-map -w",
+        "httpd:dev": "webpack-dev-server --watch-content-base"
+    },
+    "homepage": "https://github.com/koi8-r/rdulog#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/koi8-r/rdulog.git"
+    },
+    "author": "koi8-r <me@oz.net.ru> (http://oz.net.ru/)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/koi8-r/rdulog/issues"
+    },
+    "dependencies": {
+        "axios": "*",
+        "axios-mock-adapter": "*",
+        "lodash": "*",
+        "vue": "~2",
+        "vuetify": "^1.2.0"
+    },
+    "devDependencies": {
+        "babel-loader": "*",
+        "@babel/core": "*",
+        "@babel/plugin-syntax-dynamic-import": "~7",
+        "@babel/preset-env": "~7",
+        "clean-webpack-plugin": "*",
+        "copy-webpack-plugin": "*",
+        "css-loader": "*",
+        "style-loader": "*",
+        "file-loader": "*",
+        "raw-loader": "*",
+        "webpack": "~4",
+        "webpack-cli": "*",
+        "webpack-dev-server": "~3"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
+}

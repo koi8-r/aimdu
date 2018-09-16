@@ -1,23 +1,23 @@
 {
-    "name": "rdulog",
+    "name": "aimdu",
     "version": "0.0.1",
     "private": true,
-    "description": "rdulog gui",
+    "description": "aimdu web ui",
     "main": "index.js",
     "scripts": {
         "build": "webpack",
         "rundev": "webpack --devtool source-map -w",
         "httpd:dev": "webpack-dev-server --watch-content-base"
     },
-    "homepage": "https://github.com/koi8-r/rdulog#readme",
+    "homepage": "https://github.com/koi8-r/aimdu#readme",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/koi8-r/rdulog.git"
+        "url": "git+https://github.com/koi8-r/aimdu.git"
     },
     "author": "koi8-r <me@oz.net.ru> (http://oz.net.ru/)",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/koi8-r/rdulog/issues"
+        "url": "https://github.com/koi8-r/aimdu/issues"
     },
     "dependencies": {
         "axios": "*",

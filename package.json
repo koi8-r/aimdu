@@ -24,23 +24,34 @@
         "axios-mock-adapter": "*",
         "lodash": "*",
         "vue": "~2",
-        "vuetify": "^1.2.0"
+        "vuetify": "^1.2.0",
+        "material-design-icons-iconfont": "*",
+        "babel-polyfill": "*",
+        "chart.js": "*"
     },
     "devDependencies": {
-        "babel-loader": "*",
         "@babel/core": "*",
         "@babel/plugin-syntax-dynamic-import": "~7",
         "@babel/preset-env": "~7",
+        "babel-loader": "*",
         "clean-webpack-plugin": "*",
         "copy-webpack-plugin": "*",
+        "vue-loader": "*",
+        "vue-template-compiler": "*",
+        "vue-style-loader": "*",
         "css-loader": "*",
-        "style-loader": "*",
         "file-loader": "*",
         "raw-loader": "*",
+        "style-loader": "*",
         "webpack": "~4",
         "webpack-cli": "*",
         "webpack-dev-server": "~3"
     },
+    "_devDependencies": {
+        "markdown-loader": "*",
+        "markdown-it": "*"
+    },
+    "peerDependencies": {},
     "browserslist": [
         "> 1%",
         "last 2 versions",

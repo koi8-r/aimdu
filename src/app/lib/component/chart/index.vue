@@ -1,2 +1,6 @@
 <script src='./index.js'></script>
-<style scoped></style>
+<style scoped>
+    #chart {
+        width: 10% ;
+    }
+</style>

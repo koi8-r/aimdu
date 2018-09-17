@@ -1,6 +1,7 @@
 'use strict'
-import Example from '../example/index.js'
-import Chart from '../chart/index.js'
+import Example from '../example/'
+import Chart from '../chart/'
+
 
 export default {
     name: 'App',

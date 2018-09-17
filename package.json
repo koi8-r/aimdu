@@ -33,6 +33,7 @@
         "@babel/core": "*",
         "@babel/plugin-syntax-dynamic-import": "~7",
         "@babel/preset-env": "~7",
+        "@babel/preset-stage-2": "~7",
         "babel-loader": "*",
         "clean-webpack-plugin": "*",
         "copy-webpack-plugin": "*",

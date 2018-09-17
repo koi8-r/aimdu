@@ -17,7 +17,6 @@ export default {
     // https://alligator.io/vuejs/vue-chart-js/
     // https://www.sitepoint.com/creating-beautiful-charts-vue-chart-js/
     
-    // https://github.com/ecomfe/vue-echarts
     // https://dev.to/changoman/vuejs-and-chartjs-weather-api-example-1e7
     // https://alligator.io/vuejs/vue-chart-js/
     // https://abraxabra.ru/blog/vue-js/create-stunning-charts-vue-js-and-chart-js/
@@ -36,19 +35,19 @@ export default {
         console.log(this.$el)
         let ctx = this.$el.getContext('2d')
         let chart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: [1, 2, 3],
+                labels: [1, 2, 3, 4],
                 datasets: [{
                     label: 'l0',
-                    data: [31, 15, 20],
+                    data: [5, 15, 10, 8],
+                    borderColor: 'rgba(0, 0, 0, 0.1)',
                     backgroundColor: 'rgba(0, 0, 128, 0.3)',
                 }, {
                     label: 'l1',
-                    data: [0, 25, 30],
-                    borderColor: 'rgba(255, 255, 0, 0.1)',
+                    data: [8, 10, 8, 15],
+                    borderColor: 'rgba(0, 0, 0, 0.1)',
 					backgroundColor: 'rgba(0, 128, 0, 0.3)',
-                    type: 'line'
                 }]
             },
             options: {
@@ -70,5 +69,22 @@ export default {
             }
         })
     },
-    components: {}
+    components: {},
+    beforeDestroy () {},
+    _render: function (h) {
+        return h(
+            'div', {
+                style: this.styles,
+                class: this.cssClasses
+            },
+            [h('canvas', {
+                attrs: {
+                    id: this.chartId,
+                    width: this.width,
+                    height: this.height
+                },
+                ref: 'canvas'
+            })]
+        )
+    },
 }

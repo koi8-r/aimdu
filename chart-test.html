@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://echarts.baidu.com/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div id="mainDiv" style="width:600px; height:400px;"></div>
+    <canvas id="mainCvs"></canvas>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('mainDiv')) ;
+        var option = {
+            title: {
+                text: 'ECharts entry example'
+            },
+            tooltip: {},
+            legend: {
+                data:['Sales']
+            },
+            xAxis: {
+                data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
+            },
+            yAxis: {},
+            series: [{
+                name: 'Sales',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        } ;
+        myChart.setOption(option) ;
+    </script>
+</body>
+</html>

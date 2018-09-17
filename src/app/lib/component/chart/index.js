@@ -17,18 +17,56 @@ export default {
     // https://alligator.io/vuejs/vue-chart-js/
     // https://www.sitepoint.com/creating-beautiful-charts-vue-chart-js/
     
+    // https://github.com/ecomfe/vue-echarts
+    // https://dev.to/changoman/vuejs-and-chartjs-weather-api-example-1e7
+    // https://alligator.io/vuejs/vue-chart-js/
+    // https://abraxabra.ru/blog/vue-js/create-stunning-charts-vue-js-and-chart-js/
+    // https://www.thepolyglotdeveloper.com/2018/01/use-chartjs-display-attractive-charts-vuejs-web-application/
+    // https://medium.com/js-dojo/build-a-realtime-chart-with-vue-js-d7e2e25a5e21
+    // https://codepen.io/setholito/pen/BWOmwP
+    // https://hackernoon.com/creating-stunning-charts-with-vue-js-and-chart-js-28af584adc0a
+    // https://www.sitepoint.com/creating-beautiful-charts-vue-chart-js/
+    // https://appdividend.com/2018/02/23/laravel-vue-js-chartjs-tutorial-example/
+    // https://travishorn.com/stacked-bar-chart-with-chart-js-846ebdf11c4e
+    // 
+
     mounted: function() {
         console.log(this.domId)
         console.log(this.$refs[this.domId])
         console.log(this.$el)
         let ctx = this.$el.getContext('2d')
         let chart = new Chart(ctx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: [1, 2, 3, 4, 5],
+                labels: [1, 2, 3],
                 datasets: [{
-                    data: [10, 15, 18, 21, 15],
+                    label: 'l0',
+                    data: [31, 15, 20],
+                    backgroundColor: 'rgba(0, 0, 128, 0.3)',
+                }, {
+                    label: 'l1',
+                    data: [0, 25, 30],
+                    borderColor: 'rgba(255, 255, 0, 0.1)',
+					backgroundColor: 'rgba(0, 128, 0, 0.3)',
+                    type: 'line'
                 }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js example'
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
             }
         })
     },

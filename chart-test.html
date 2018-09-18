@@ -2,32 +2,29 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script src="http://echarts.baidu.com/dist/echarts.min.js"></script>
+    <style type="text/css">
+        canvas {
+            border-width: 2px ;
+            width: 100% ;
+            background-color: #d8da3d
+        }
+    </style>
 </head>
 <body>
-    <div id="mainDiv" style="width:600px; height:400px;"></div>
-    <canvas id="mainCvs"></canvas>
+    <canvas id="c0"></canvas>
+    <canvas id="c1" width='333px'></canvas>
     <script type="text/javascript">
-        var myChart = echarts.init(document.getElementById('mainDiv')) ;
-        var option = {
-            title: {
-                text: 'ECharts entry example'
-            },
-            tooltip: {},
-            legend: {
-                data:['Sales']
-            },
-            xAxis: {
-                data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
-            },
-            yAxis: {},
-            series: [{
-                name: 'Sales',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
-            }]
-        } ;
-        myChart.setOption(option) ;
+        // https://github.com/chartjs/Chart.js/tree/master/src/helpers
+        var canvas0 = document.getElementById('c0')
+        console.debug({
+            "getAttribute('width')" : canvas0.getAttribute('width'),
+            "width" : canvas0.width,
+        }) ;
+        var canvas1 = document.getElementById('c1')
+        console.debug({
+            "getAttribute('width')" : canvas1.getAttribute('width'),
+            "width" : canvas1.width,
+        }) ;
     </script>
 </body>
 </html>

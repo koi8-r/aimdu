@@ -10,6 +10,6 @@ export default {
     components: {
         'x-example': Example,
         'x-chart': Chart,
-        'v-d3chart': D3Chart
+        'v-chart': D3Chart
     }
 }

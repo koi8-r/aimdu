@@ -22,13 +22,13 @@
     "dependencies": {
         "axios": "*",
         "axios-mock-adapter": "*",
-        "lodash": "*",
-        "vue": "~2",
-        "vuetify": "^1.2.0",
-        "material-design-icons-iconfont": "*",
         "babel-polyfill": "*",
         "chart.js": "*",
-        "d3": "*"
+        "d3": "*",
+        "lodash": "*",
+        "material-design-icons-iconfont": "*",
+        "vue": "~2",
+        "vuetify": "^1.2.0"
     },
     "devDependencies": {
         "@babel/core": "*",

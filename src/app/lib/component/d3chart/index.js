@@ -25,7 +25,7 @@ export default {
         return h('div', {
                 style: {
                     'background-color': '#00a070',
-                    _padding: '25px'
+                    _padding: '25px',
                 },
                 // class: this.cssClasses
             },
@@ -36,7 +36,8 @@ export default {
                 style: {
                     'background-color': '#ffa070',
                     width: '100%',
-                    _height: '100%'
+                    _height: '100%',
+                    display: 'block',
                 },
                 ref: 'chart'
             })]

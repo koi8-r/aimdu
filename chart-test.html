@@ -15,6 +15,11 @@
             width: 50% ;
             background-color: #d8da3d
         }
+        #div_r {
+            width: 25% ;
+            background-color: #00ff00 ;
+            padding: 25px ;
+        }
     </style>
 </head>
 <body>
@@ -22,6 +27,9 @@
     <canvas id="c0"></canvas>
     <canvas id="c1" width='333px'></canvas>
     <svg id="s0"></svg>
+    <div id='div_r'>
+        <svg id="svg_r"></svg>
+    </div>
     <script type="text/javascript">
         // https://github.com/chartjs/Chart.js/tree/master/src/helpers
         var canvas0 = document.getElementById('c0')
@@ -48,6 +56,13 @@
             "getAttribute('width')" : div0.getAttribute('width'),
             "width" : div0.width,
             "clientWidth" : div0.clientWidth,
+        }) ;
+        var svg_r = document.getElementById('svg_r')
+        var div_r = document.getElementById('div_r')
+        console.debug({
+            "width" : [div_r.width, svg_r.width],
+            "clientWidth" : [div_r.clientWidth, svg_r.clientWidth],
+            "offsetWidth" : [div_r.offsetWidth, svg_r.offsetWidth],
         }) ;
     </script>
 </body>

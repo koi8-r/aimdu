@@ -60,6 +60,14 @@ export default {
         console.log(x(new Date(2018, 1, 10)))
         console.log(y(10))
         // svg.append('g').call(d3.axisTop(y))
+        let ln = d3.line()
+                   .x(d => x(d.y))
+                   .y(d => y(10-d.x))
+        
+        let d = chart.append('path')
+                     .attr('d', ln(this.data))
+                     .attr("stroke", "blue")
+        /*
         let d = chart.selectAll('g')
                      .data(this.data)
                      .enter()
@@ -68,6 +76,7 @@ export default {
                      .attr('height', d => y(d.x))
                      //.attr('height', d => d.x)
                      .attr('x', (d, i) => 32 * i)
+        */
     },
     // watch: function(data) {}
 }

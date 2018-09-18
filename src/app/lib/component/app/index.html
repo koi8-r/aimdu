@@ -20,6 +20,7 @@
                             <div>
                                 <h3 class="headline mb-0">Title</h3>
                                 <div>...</div>
+                                <v-d3chart domId="d3" />
                             </div>
                         </v-card-title>
                         <x-chart domId='chart'></x-chart>
@@ -29,6 +30,8 @@
             </v-layout>
         </v-container>
     </v-content>
-    <v-footer app></v-footer>
+    <v-footer app>
+        <v-d3chart domId="d3" />
+    </v-footer>
 </v-app>
 <!-- </div> -->

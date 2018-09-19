@@ -15,11 +15,50 @@ Vue.component('x-hxe', {
 })
 
 
-new Vue({
+// ResizeObserver
+/*
+new MutationObserver(() => {}).observe(document, {
+    attributes: true,
+    childList: true,
+    characterData: true,
+    subtree: true
+})
+*/
+
+
+Object.defineProperty(Vue.prototype, "$bus", {
+    get: function() {
+        return this.$root.bus
+    }
+})
+
+
+const vue = new Vue({
 
     render: h => h(App),
-    data: () => ({}),
+    data: () => ({
+        bus: new Vue({})
+    }),
     //components: { App },
     //template: '<App/>'
+
+    mounted: function() {
+        self = this
+
+        /*
+        window.addEventListener('resize', function(ev) {
+            self.bus.$emit('resize')
+        })
+        
+        
+        document.addEventListener('transitionend', function(ev) {
+            self.bus.$emit('transitionend')
+        })
+
+        document.addEventListener('DOMSubtreeModified', function(ev) {
+            self.bus.$emit('subtree_modified')
+        })
+        */
+    }
 
 }).$mount('#app')

@@ -60,6 +60,17 @@ export default {
         let el = this.$el
         let ch = this.$refs['chart']
 
+        this.$nextTick(() => {
+            console.log(this.$el.clientWidth)
+        })
+
+        const self = this
+        this.$bus.$on('init:a', function() {
+            console.info('vue component init:a')
+            console.log(self.$el.clientWidth)
+        })
+
+        /*
         this.$bus.$on('init:a', function() {
             console.info('vue component init:a')
             q(this)
@@ -83,7 +94,7 @@ export default {
                 let d = chart.append('path')
                              .attr('d', ln(this.data))
                              .attr("stroke", "white")
-                /*
+                /
                 let d = chart.selectAll('g')
                              .data(this.data)
                              .enter()
@@ -92,9 +103,10 @@ export default {
                              .attr('height', d => y(d.x))
                              //.attr('height', d => d.x)
                              .attr('x', (d, i) => 32 * i)
-                */
+                /
             })(ch, el.clientWidth, el.clientHeight)
         })
+        */
     },
     // watch: function(data) {}
 }

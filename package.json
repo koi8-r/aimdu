@@ -25,6 +25,7 @@
         "babel-polyfill": "*",
         "chart.js": "*",
         "d3": "*",
+        "jquery": "^3.3.1",
         "lodash": "*",
         "material-design-icons-iconfont": "*",
         "vue": "~2",

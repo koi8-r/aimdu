@@ -37,7 +37,10 @@ module.exports = {
         ]),
         new webpack.ProvidePlugin({
             _: 'lodash',
-            _map: ['lodash', 'map']
+            _map: ['lodash', 'map'],
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
         }),
         new VueLoaderPlugin()
     ],

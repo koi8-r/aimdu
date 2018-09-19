@@ -11,5 +11,12 @@ export default {
         'x-example': Example,
         'x-chart': Chart,
         'v-chart': D3Chart
+    },
+    mounted: function() {
+        this.$nextTick(function(ev) {
+            // window.dispatchEvent(new Event('resize'))
+            let _emit = this.$emit
+            window.addEventListener('resize', () => { _emit('resize', ev) })
+        })
     }
 }

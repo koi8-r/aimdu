@@ -1,4 +1,5 @@
-export default (el) => {
+export default (e) => {
+    const el = e.$el
     // console.warn(el.getBBox())
     let wo = el.offsetWidth
     let wc = el.clientWidth

@@ -45,69 +45,56 @@ export default {
             })]
         )
     },
-    computed: {
-        // width
-    },
+    computed: {},
     beforeUpdate: function() {
         console.info('vue component update')
     },
-    beforeCreate: function() {
-        //this.$bus.$on(  'resize', () => console.info('vue component resize')  )
-        //this.$bus.$on(  'transitionend', () => console.info('vue component transitionend')  )
-    },
-    beforeMount: function() {
-        self = this
-        this.$bus.$on(  'subtree_modified', function() {
-            console.info('vue component subtree modified')
-            q(self.$el)
-        })
-        this.$bus.$on(  'resize', function() {
-            console.info('vue component resize')
-            q(self.$el)
-        })
-        this.$bus.$on(  'transitionend', function() {
-            console.info('vue component transitionend')
-            q(self.$el)
-        })
-    },
+    beforeCreate: function() {},
+    beforeMount: function() {},
     beforeDestroy: () => this.$bus.$off(),  // unbind all events
+    destroyed: () => {},
     mounted: function() {
+        console.warn('chart mount')
+        console.warn(this._width)
+
         let el = this.$el
         let ch = this.$refs['chart']
 
-        setInterval(() => {
-            q(el)
-        }, 3000)
-
-        let chart = d3.select(ch)
-        return
-
-        let x = d3.scaleTime()
-                  .domain([new Date(2018, 1, 1), new Date(2018, 1, 6)])
-                  .range([0, w])
-
-        let y = d3.scaleLinear()
-                  //.domain([0, d3.max(data)])
-                  .domain([10, 0])
-                  .range([0, h])
-
-        let ln = d3.line()
-                   .x(d => x(d.date))
-                   .y(d => y(d.val))
-        
-        let d = chart.append('path')
-                     .attr('d', ln(this.data))
-                     .attr("stroke", "white")
-        /*
-        let d = chart.selectAll('g')
-                     .data(this.data)
-                     .enter()
-                     .append('rect')
-                     .attr('width', d => 32)
-                     .attr('height', d => y(d.x))
-                     //.attr('height', d => d.x)
-                     .attr('x', (d, i) => 32 * i)
-        */
+        this.$bus.$on('init:a', function() {
+            console.info('vue component init:a')
+            q(this)
+            return null
+            (function(ch, w, h) {
+                let chart = d3.select(ch)
+    
+                let x = d3.scaleTime()
+                          .domain([new Date(2018, 1, 1), new Date(2018, 1, 6)])
+                          .range([0, w])
+    
+                let y = d3.scaleLinear()
+                          //.domain([0, d3.max(data)])
+                          .domain([10, 0])
+                          .range([0, h])
+    
+                let ln = d3.line()
+                           .x(d => x(d.date))
+                           .y(d => y(d.val))
+                
+                let d = chart.append('path')
+                             .attr('d', ln(this.data))
+                             .attr("stroke", "white")
+                /*
+                let d = chart.selectAll('g')
+                             .data(this.data)
+                             .enter()
+                             .append('rect')
+                             .attr('width', d => 32)
+                             .attr('height', d => y(d.x))
+                             //.attr('height', d => d.x)
+                             .attr('x', (d, i) => 32 * i)
+                */
+            })(ch, el.clientWidth, el.clientHeight)
+        })
     },
     // watch: function(data) {}
 }

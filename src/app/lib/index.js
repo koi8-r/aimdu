@@ -43,22 +43,15 @@ const vue = new Vue({
     //template: '<App/>'
 
     mounted: function() {
+        console.warn('app mount')
         self = this
 
-        /*
-        window.addEventListener('resize', function(ev) {
-            self.bus.$emit('resize')
+        document.addEventListener('resize', function(_ev) {
+            self.bus.$emit('init:a')
         })
-        
-        
-        document.addEventListener('transitionend', function(ev) {
-            self.bus.$emit('transitionend')
+        document.addEventListener('DOMSubtreeModified', function(_ev) {
+            self.bus.$emit('init:a')
         })
-
-        document.addEventListener('DOMSubtreeModified', function(ev) {
-            self.bus.$emit('subtree_modified')
-        })
-        */
     }
 
 }).$mount('#app')

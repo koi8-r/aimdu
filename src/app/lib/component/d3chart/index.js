@@ -70,6 +70,15 @@ export default {
             console.log(self.$el.clientWidth)
         })
 
+        document.addEventListener('resize', function(ev) {
+            console.log(ths)  // this =?
+        })
+/*
+    https://forum.vuejs.org/t/how-to-watch-the-height-change-dom-of-an-element-in-vuejs/21290/4
+    https://vuejs.org/v2/api/#updated
+    https://github.com/Kelin2025/vue-responsive-components/blob/master/index.js
+    this.$set(this.$el.is)
+ */
         /*
         this.$bus.$on('init:a', function() {
             console.info('vue component init:a')

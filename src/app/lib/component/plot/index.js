@@ -2,16 +2,6 @@
 import * as d3 from 'd3'
 import Plotly from 'plotly.js-dist'
 
-/*
-https://stackoverflow.com/questions/47117803/ploty-js-graph-not-responsive
-https://plot.ly/javascript/
-https://codepen.io/plotly/pen/PPVeer
-https://plot.ly/javascript/pie-charts/
-https://plot.ly/javascript/histograms/
-https://plot.ly/javascript/line-charts/
-https://plot.ly/javascript/responsive-fluid-layout/
-
- */
 
 export default {
     name: 'Plot',
@@ -28,8 +18,7 @@ export default {
     render: function (h) {
         return h('div', {
                 style: {
-                    xwidth: '600px',
-                    xheight: '250px',
+                    width: '100%'
                 }
             },
             []
@@ -37,11 +26,30 @@ export default {
     },
     mounted: function() {
         let el = this.$el
+        //let gd = d3.select(el).node()
+        let gd = el
 
-        Plotly.plot(el, [{
-            x: [1, 2, 3],
-            y: [1, 2, 4]
+        Plotly.plot(gd, [{
+            x: [1, 2, 3, 2],
+            y: [1, 2, 4, 5],
+            //mode: 'lines+markers',
+            //type: 'scatter',
+            marker: {
+                color: 'rgb(128, 0, 128)',
+                size: 8
+            },
+            line: {
+                color: 'rgb(128, 0, 128)',
+                width: 1
+            }
         }],
-        { margin: {t: 0} })
+        {
+            autosize: true,
+            showlegend: true
+        })
+
+        window.onresize = function() {
+            Plotly.Plots.resize(gd)
+        }
     }
 }

@@ -10,8 +10,8 @@ import App from './component/app/index.vue'
 
 Vue.use(Vuetify)
 
-Vue.component('x-hxe', {
-    render: h => h('div', {}, [ h('p', 'Z') ])
+Vue.component('v-test', {
+    render: h => h('div', {}, [ h('p', 'text') ])
 })
 
 
@@ -33,25 +33,22 @@ Object.defineProperty(Vue.prototype, "$bus", {
 })
 
 
-const vue = new Vue({
+new Vue({
 
     render: h => h(App),
     data: () => ({
         bus: new Vue({})
     }),
-    //components: { App },
-    //template: '<App/>'
-
+    components: {},
     mounted: function() {
+        // top mounted last
         self = this
-        document.addEventListener('resize', function(_ev) {
-            self.bus.$emit('init:a')
+        this.$nextTick(() => {
+            // todo: remove listeners
+            window.addEventListener('resize', function(_ev) {
+                self.bus.$emit('dom:resize')
+            })
         })
-        document.addEventListener('DOMSubtreeModified', function(_ev) {
-            self.bus.$emit('init:a')
-        })
-        console.warn('app mount')
-
     }
 
 }).$mount('#app')

@@ -14,12 +14,4 @@ export default {
         'v-chart': D3Chart,
         'v-plot': Plot
     },
-    mounted: function() {
-        console.warn('App mount')
-        // this.$nextTick(function(ev) {
-            // window.dispatchEvent(new Event('resize'))
-            // let _emit = this.$emit
-            // window.addEventListener('resize', () => { _emit('resize', ev) })
-        // })
-    }
 }

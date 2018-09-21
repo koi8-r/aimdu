@@ -16,94 +16,72 @@ export default {
             {val: 2,  date: new Date(2018, 1, 2)},
             {val: 4,  date: new Date(2018, 1, 3)},
             {val: 3, date: new Date(2018, 1, 4)},
-            {val: 1,  date: new Date(2018, 1, 5)},
-            {val: 3,  date: new Date(2018, 1, 6)},
+            {val: 0,  date: new Date(2018, 1, 5)},
+            {val: 5,  date: new Date(2018, 1, 6)},
             {val: 5,  date: new Date(2018, 1, 7)},
             {val: 8,  date: new Date(2018, 1, 8)},
-            {val: 10,  date: new Date(2018, 1, 9)},
-            {val: 7, date: new Date(2018, 1, 10)},
+            {val: 5,  date: new Date(2018, 1, 9)},
+            {val: 10, date: new Date(2018, 1, 10)},
     ]}),
     render: function (h) {
         return h('div', {
                 style: {
                     width: '100%',
-                    '_background-color': '#00a070',
-                    _padding: '10px',
+                    height: '100%',
+                    '-background-color': '#00a070',
+                    '-padding': '10px',
+                    position: 'relative'
                 },
             },
             [h('svg', {
                 attrs: {},
                 style: {
-                    '_background-color': '#ffa070',
+                    '-background-color': '#ffa070',
                     width: '100%',
                     height: '100%',
-                    display: 'block'
+                    display: 'block',
                 },
                 ref: 'chart'
+            }),
+            h('iframe', {
+                attrs: {},
+                style: {
+                    '-background-color': '#0fa0ff',
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    margin: '0',
+                    top: '0',
+                    left: '0',
+                    position: 'absolute',
+                    'z-index': '-1',
+                },
+                ref: 'frame'
             })]
         )
     },
     beforeUpdate: function() {},
     beforeCreate: function() {},
     beforeMount: function() {},
-    beforeDestroy: () => this.$bus.$off(),  // unbind all events
+    // beforeDestroy: () => this.$bus.$off(),  // unbind all events from all
     destroyed: () => {},
     // watch: function(data) {}
-    // computed: function() {}
-    // this.$set(this.$el.is)
+    // computed: {},
+    // this.$set
     // if new_width != old_width
     mounted: function() {
-
         let el = this.$el
-        let ch = this.$refs['chart']
-        let chart = d3.select(ch)
+        let frame = this.$refs['frame']
+        let chart = d3.select(this.$refs['chart'])
         const self = this
 
-        let w = el.clientWidth
-        let h = el.clientHeight
-        let x = d3.scaleTime()
-                  .domain([new Date(2018, 1, 1), new Date(2018, 1, 6)])
-                  .range([0, w])
-
-        let y = d3.scaleLinear()
-                  .domain([10, 0])  //.domain([0, d3.max(data)])
-                  .range([0, h])
-
-        let lngen = d3.line()
-                      .x(d => x(d.date))
-                      .y(d => y(d.val))
-
-        let path = chart.append('path')
-                        .attr('d', lngen(self.data))
-                        .attr("stroke", "blue")
-
-        this.$nextTick(() => {
-            el.addEventListener('DOMSubtreeModified', function(ev) {
-                console.warn(el)
-            })
-            // todo: remove listeners
-            document.addEventListener('DOMSubtreeModified', function(ev) {
-                console.error(ev.target.nodeName)
-                // todo dom subtree check
-                if (ev.target.nodeName !== 'svg' && ev.target.nodeName !== 'path') {
-                    self.$root.bus.$emit('dom:!mutate')
-                }
-            })
-        })
-
-
-        // svf scale: https://gist.github.com/soykje/ec2fc326830355104c89cd50bf1fa192
         const render = () => {
-            let w = el.clientWidth
-            let h = el.clientHeight
-            console.log(`${w}x${h}`)
-
             // d.selectAll('rect.background').attr('width', w)
-
-            chart.attr('width', w)
+            let {clientWidth: w, clientHeight: h} = frame
+            console.info(`:render: ${w}x${h}`)
 
             let x = d3.scaleTime()
-                      .domain([new Date(2018, 1, 1), new Date(2018, 1, 6)])
+                      .domain([new Date(2018, 1, 1), new Date(2018, 1, 10)])
                       .range([0, w])
 
             let y = d3.scaleLinear()
@@ -114,39 +92,21 @@ export default {
                           .x(d => x(d.date))
                           .y(d => y(d.val))
             
-            path.attr('d', lngen(self.data))
-
+            if (chart.select('path').node() !== null) {
+                chart.attr('width', w)
+                chart.attr('height', h)
+                chart.select('path').attr('d', lngen(self.data))
+            } else {
+                return chart.append('path')
+                            .attr('d', lngen(self.data))
+                            .attr("stroke", "blue")
+            }
         }
 
-        render()
-
-        //this.$nextTick(() => () => render())
-        //this.$nextTick(() => () => render())
-
-        this.$bus.$on('dom:mutate', () => {
-            console.info('dom:mutate')
-            console.log(this.$el.clientWidth)
-            render()
+        this.$nextTick(() => {
+            // todo: remove listeners
+            frame.contentWindow.addEventListener('resize', (_ev) => render())
+            frame.contentWindow.dispatchEvent(new Event('resize'))
         })
-
-        this.$bus.$on('dom:resize', () => {
-            console.info('dom:resize')
-            console.log(this.$el.clientWidth)
-            render()
-        })
-
-        /*
-
-                /
-                let d = chart.selectAll('g')
-                             .data(this.data)
-                             .enter()
-                             .append('rect')
-                             .attr('width', d => 32)
-                             .attr('height', d => y(d.x))
-                             //.attr('height', d => d.x)
-                             .attr('x', (d, i) => 32 * i)
-                /
-         */
     },
 }

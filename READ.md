@@ -8,3 +8,4 @@
 - https://stackoverflow.com/questions/50427528/unable-to-create-a-line-chart-in-d3-js
 - https://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-22935
 - https://medium.freecodecamp.org/learn-to-create-a-line-chart-using-d3-js-4f43f1ee716b
+- [svg scale](https://gist.github.com/soykje/ec2fc326830355104c89cd50bf1fa192)

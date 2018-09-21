@@ -46,7 +46,7 @@ new Vue({
         this.$nextTick(() => {
             // todo: remove listeners
             window.addEventListener('resize', function(_ev) {
-                self.bus.$emit('dom:resize')
+                self.bus.$emit('dom:w:resize')
             })
         })
     }

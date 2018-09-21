@@ -43,14 +43,15 @@ export default {
             })]
         )
     },
-    computed: {},
     beforeUpdate: function() {},
     beforeCreate: function() {},
     beforeMount: function() {},
     beforeDestroy: () => this.$bus.$off(),  // unbind all events
     destroyed: () => {},
     // watch: function(data) {}
+    // computed: function() {}
     // this.$set(this.$el.is)
+    // if new_width != old_width
     mounted: function() {
 
         let el = this.$el
@@ -77,12 +78,15 @@ export default {
                         .attr("stroke", "blue")
 
         this.$nextTick(() => {
+            el.addEventListener('DOMSubtreeModified', function(ev) {
+                console.warn(el)
+            })
             // todo: remove listeners
             document.addEventListener('DOMSubtreeModified', function(ev) {
-                console.warn(ev.target.nodeName)
+                console.error(ev.target.nodeName)
                 // todo dom subtree check
                 if (ev.target.nodeName !== 'svg' && ev.target.nodeName !== 'path') {
-                    self.$root.bus.$emit('dom:mutate')
+                    self.$root.bus.$emit('dom:!mutate')
                 }
             })
         })

@@ -12,7 +12,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         'index': './src/app/lib/index',
-        // 'test': './src/app/test'
+        'lab': './src/lab/index'
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
@@ -34,6 +34,7 @@ module.exports = {
         // new DefinePlugin()
         new CopyWebpackPlugin([
             { from: './src/*.html', to: './[name].[ext]' },
+            { from: './src/lab/index.html', to: './lab.html' },
         ]),
         new webpack.ProvidePlugin({
             _: 'lodash',

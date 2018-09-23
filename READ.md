@@ -1,11 +1,15 @@
-- https://habr.com/post/166321/
-- https://github.com/developit/simple-element-resize-detector/blob/master/index.js
-- https://www.sitepoint.com/creating-simple-line-bar-charts-using-d3-js/
-- https://forums.databricks.com/questions/13077/multi-color-line-chart-d3js.html
-- https://www.asynclabs.co/blog/how-to-visualize-big-data-sets-with-d3-js/
-- https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/
-- https://itnext.io/d3-js-in-all-its-glory-7066601aa16b
-- https://stackoverflow.com/questions/50427528/unable-to-create-a-line-chart-in-d3-js
-- https://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-22935
-- https://medium.freecodecamp.org/learn-to-create-a-line-chart-using-d3-js-4f43f1ee716b
-- [svg scale](https://gist.github.com/soykje/ec2fc326830355104c89cd50bf1fa192)
+# READ
+
+- ```html
+  <div style= "display:flex" >
+  ```
+
+- [vue render src](https://github.com/vuejs/vue/blob/dev/src/core/instance/render.js)
+- [vue next tick](https://github.com/vuejs/vue/blob/dev/src/core/util/next-tick.js)
+- [Хуки жизненного цикла Vue.js](https://habr.com/company/mailru/blog/350962/)
+- [Building a PDF Viewer with Vue - Part 1](https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-1.html)
+- [Building a PDF Viewer with Vue - Part 2](https://rossta.net/blog/building-a-pdf-viewer-with-vue-part-2.html)
+- [Building a PDF Viewer with Vue - Part 3](https://rossta.net/blog/extracting-a-data-component-in-vue.html)
+- [How To Build Vue Components Like A Pro 😎](https://blog.bitsrc.io/how-to-build-vue-components-like-a-pro-fd89fd4d524d)
+- [Understanding Rendering Process with Virtual DOM In Vue.js](https://medium.com/@koheimikami/understanding-rendering-process-with-virtual-dom-in-vue-js-a6e602811782)
+- [What’s The Deal With Vue’s Virtual DOM?](https://medium.com/js-dojo/whats-the-deal-with-vue-s-virtual-dom-3ed4fc0dbb20)

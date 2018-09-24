@@ -5,7 +5,22 @@ import Vue from 'vue'
 let c = Vue.component('v-test', {
     render: function(h) {
         console.log('@render')
-        return h('div', {}, this.$attrs.w)
+        return h('div', {
+            attrs: { width: this.$attrs.w },
+            style: { width: this.$attrs.w },
+        })
+    },
+    methods: {
+        rerender: function() {
+            console.log(`${this.$el.innerHTML.toString()} -> @${this.$attrs.w.toString()}`)
+            this.$el.innerHTML = '@' + this.$attrs.w.toString()
+        }
+    },
+    mounted: function() {
+        this.rerender()
+    },
+    updated: function () {
+        this.rerender()
     }
 })
 
@@ -21,17 +36,12 @@ export default {
         dirty: false,
     }),
     render: function (h) {
-        console.debug('mutation -> rerender')
-
         let vnode = h('div', {}, [
-            h('a', {
-                attrs: { href: this.x },
+            h(c, {
+                attrs: { w: this.w },
                 style: {
                     position: 'absolute',
                 }
-            }, this.width > 0 && '' || ''),
-            h(c, {
-                attrs: { w: this.w },
             }),
             h('iframe', {
                 style: {
@@ -46,30 +56,15 @@ export default {
         ])
         return vnode
     },
-    methods: {
-        render: function () {
-            console.info('render')
-            this.dirty = false
-        }
-    },
     computed: {
         w : {
             get: function () {
                 return this.width
             },
             set: function (val) {
-                console.debug('set')
                 this.width = val
-
-                if (! this.dirty) {
-                    this.$nextTick(this.render)
-                    this.dirty = true
-                }
             }
         }
-    },
-    updated: function() {
-        console.debug('updated')
     },
     mounted: function() {
         const self = this

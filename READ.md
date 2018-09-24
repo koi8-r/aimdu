@@ -1,11 +1,3 @@
-- https://habr.com/post/166321/
-- https://github.com/developit/simple-element-resize-detector/blob/master/index.js
-- https://www.sitepoint.com/creating-simple-line-bar-charts-using-d3-js/
-- https://forums.databricks.com/questions/13077/multi-color-line-chart-d3js.html
-- https://www.asynclabs.co/blog/how-to-visualize-big-data-sets-with-d3-js/
-- https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/
-- https://itnext.io/d3-js-in-all-its-glory-7066601aa16b
-- https://stackoverflow.com/questions/50427528/unable-to-create-a-line-chart-in-d3-js
-- https://code.tutsplus.com/tutorials/building-a-multi-line-chart-using-d3js--cms-22935
-- https://medium.freecodecamp.org/learn-to-create-a-line-chart-using-d3-js-4f43f1ee716b
 - [svg scale](https://gist.github.com/soykje/ec2fc326830355104c89cd50bf1fa192)
+- [Представление большого объема данных в виде линейных графиков с D3.js](https://medium.com/factorymn/%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B3%D0%BE-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BC%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B2-%D0%B2%D0%B8%D0%B4%D0%B5-%D0%BB%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D1%8B%D1%85-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2-%D1%81-d3-js-61ebfa5909dc)
+- [Vue.js Asynchronous Update Queue](https://codingexplained.com/coding/front-end/vue-js/asynchronous-update-queue)

@@ -33,7 +33,7 @@ Object.defineProperty(Vue.prototype, "$bus", {
 })
 
 
-new Vue({
+const vm = new Vue({
 
     render: h => h(App),
     data: () => ({
@@ -52,3 +52,5 @@ new Vue({
     }
 
 }).$mount('#app')
+ 
+window.vm = vm  // delme: play with vm.$createElement('xyz', 'hello')
